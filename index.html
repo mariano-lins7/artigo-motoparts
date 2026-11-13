@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0c">
+  <meta name="description" content="Peças, capacetes e acessórios para motociclistas. Artigo Moto Parts, Cacoal - RO.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/logo-artigo.jpg">
+  <link rel="stylesheet" href="styles.css">
+  <title>Artigo Moto Parts | Sua moto, nossa paixão</title>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Artigo Moto Parts - início">
+    <img src="assets/logo-artigo.jpg" alt="Logo Artigo Moto Parts">
+    <span><b>ARTIGO</b><small>MOTO PARTS</small></span>
+  </a>
+  <button class="cart-trigger" id="openCart" aria-label="Abrir carrinho">🛒 <span id="cartCount">0</span></button>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">CACOAL • RONDÔNIA</span>
+      <h1>Peças e acessórios<br><em>para sua moto.</em></h1>
+      <p>Encontre o que precisa e receba em sua cidade. A estrada é sua; a gente cuida das peças.</p>
+      <a href="#catalogo" class="primary-link">Explorar produtos <span>→</span></a>
+    </div>
+    <div class="hero-mark"><img src="assets/logo-artigo.jpg" alt=""></div>
+    <div class="hero-lines"></div>
+  </section>
+
+  <section class="benefits" aria-label="Vantagens">
+    <div><span>📦</span><b>Envio em RO</b><small>Consulte sua cidade</small></div>
+    <div><span>🛠️</span><b>Peças e acessórios</b><small>Para o dia a dia</small></div>
+    <div><span>💬</span><b>Atendimento próximo</b><small>Fale com a equipe</small></div>
+  </section>
+
+  <section class="section" id="catalogo">
+    <div class="section-heading">
+      <div><span class="eyebrow red">VITRINE DA LOJA</span><h2>Encontre seu produto</h2></div>
+      <span class="count-label" id="productCount">6 produtos</span>
+    </div>
+    <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar capacete, luva, peça..." aria-label="Buscar produtos"></label>
+    <div class="categories" id="categories">
+      <button class="category active" data-category="Todos">Todos</button>
+      <button class="category" data-category="Capacetes">Capacetes</button>
+      <button class="category" data-category="Proteção">Proteção</button>
+      <button class="category" data-category="Peças">Peças</button>
+      <button class="category" data-category="Acessórios">Acessórios</button>
+      <button class="category" data-category="Vestuário">Vestuário</button>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+    <p class="demo-note">Vitrine demonstrativa: produtos, fotos, preços e disponibilidade precisam ser confirmados pela loja antes de publicar.</p>
+  </section>
+
+  <section class="request-banner">
+    <div><span class="eyebrow">NÃO ENCONTROU?</span><h2>Procurando uma peça específica?</h2><p>Peça para a equipe verificar disponibilidade ou encomenda.</p></div>
+    <a class="outline-link" id="requestLink" href="#">Solicitar produto ↗</a>
+  </section>
+
+  <section class="delivery section">
+    <span class="eyebrow red">RONDÔNIA INTEIRA</span>
+    <h2>Da nossa loja até você.</h2>
+    <p>Informe sua cidade no pedido para consultar as opções de entrega, retirada e frete disponíveis.</p>
+    <div class="city-chips"><span>Cacoal</span><span>Ji-Paraná</span><span>Vilhena</span><span>Porto Velho</span><span>Ariquemes</span><span>e outras cidades</span></div>
+  </section>
+</main>
+
+<footer><div class="footer-brand">ARTIGO <span>MOTO PARTS</span></div><p>Rua Pioneiro Lauro Ângelo Bianchini, 1010 • Cacoal - RO</p><small>© <span id="year"></span> Artigo Moto Parts. Todos os direitos reservados.</small></footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="cart-panel" id="cartPanel" aria-label="Carrinho de compras" aria-hidden="true">
+  <div class="panel-head"><div><span class="eyebrow red">SEU PEDIDO</span><h2>Carrinho</h2></div><button id="closeCart" class="icon-btn" aria-label="Fechar">✕</button></div>
+  <div id="cartItems" class="cart-items"><p class="empty">Seu carrinho está vazio.</p></div>
+  <div class="cart-bottom"><div class="total-row"><span>Subtotal</span><b id="cartTotal">R$ 0,00</b></div><button id="checkoutBtn" class="primary-btn" disabled>Continuar pedido</button><small>Frete calculado conforme cidade e modalidade de entrega.</small></div>
+</aside>
+
+<div class="modal-wrap" id="checkoutModal" aria-hidden="true">
+  <div class="modal">
+    <div class="panel-head"><div><span class="eyebrow red">FINALIZAR PEDIDO</span><h2>Seus dados</h2></div><button id="closeCheckout" class="icon-btn" aria-label="Fechar">✕</button></div>
+    <form id="checkoutForm">
+      <label>Nome completo<input name="name" required placeholder="Seu nome"></label>
+      <label>WhatsApp<input name="phone" required inputmode="tel" placeholder="(69) 99999-9999"></label>
+      <label>Cidade em Rondônia<input name="city" required placeholder="Ex.: Ji-Paraná"></label>
+      <label>Como prefere receber?
+        <select name="delivery" required><option value="">Selecione</option><option>Entrega local (consultar disponibilidade)</option><option>Transportadora (consultar frete)</option><option>Retirada na loja em Cacoal</option></select>
+      </label>
+      <label>Pagamento preferido
+        <select name="payment" required><option value="">Selecione</option><option>Pix</option><option>Cartão</option></select>
+      </label>
+      <label>Observações<textarea name="notes" rows="2" placeholder="Modelo/ano da moto ou detalhes do pedido"></textarea></label>
+      <button class="primary-btn" type="submit">Enviar solicitação do pedido</button>
+      <small>Esta versão envia uma solicitação para a loja. A cobrança real por Pix/cartão será ativada após configurar um provedor de pagamento.</small>
+    </form>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
